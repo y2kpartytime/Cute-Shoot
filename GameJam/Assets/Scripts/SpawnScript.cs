@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnScript : MonoBehaviour
@@ -8,18 +6,16 @@ public class SpawnScript : MonoBehaviour
     public GameObject[] targets;
     public float spawnTimer;
     public float spawnTimeAmount = 5f;
-    
+
     void Start()
     {
         spawnTimer = spawnTimeAmount;
         SpawnTarget();
     }
 
-    // Update is called once per frame
     void Update()
     {
         spawnTimer -= Time.deltaTime;
-
         if (spawnTimer <= 0)
         {
             SpawnTarget();

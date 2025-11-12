@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TargetScript : MonoBehaviour
@@ -7,20 +5,22 @@ public class TargetScript : MonoBehaviour
     public float speed;
     public Time time;
     public GameObject spawnPoint2;
+    public float sinCenterY;
 
     void Start()
     {
-        speed = Random.Range(2f, 5f);
+        speed = UnityEngine.Random.Range(2f, 5f);
+        sinCenterY = transform.position.y;
     }
 
     void Update()
     {
-        transform.position -= Vector3.right * speed * Time.deltaTime;
+        transform.position += Vector3.left * speed * Time.deltaTime;
 
-        //need to fix spawning on top of eachother
         Vector2 pos = transform.position;
         float sin = Mathf.Sin(pos.x);
-        pos.y = sin;
+        
+        pos.y = sinCenterY + sin;
         transform.position = pos;
     }
 
