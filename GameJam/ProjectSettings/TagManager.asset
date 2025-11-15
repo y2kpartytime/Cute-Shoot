@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Despawn
   - Target
+  - Wall
   layers:
   - Default
   - TransparentFX

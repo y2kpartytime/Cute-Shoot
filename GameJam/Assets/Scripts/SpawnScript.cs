@@ -6,6 +6,8 @@ public class SpawnScript : MonoBehaviour
     public GameObject[] targets;
     public float spawnTimer;
     public float spawnTimeAmount = 5f;
+    public bool left;
+    public PlayerScript playerScript;
 
     void Start()
     {
@@ -16,11 +18,21 @@ public class SpawnScript : MonoBehaviour
     void Update()
     {
         spawnTimer -= Time.deltaTime;
+        
         if (spawnTimer <= 0)
         {
             SpawnTarget();
             Debug.Log("spawned new target");
             spawnTimer = spawnTimeAmount;
+        }
+
+        if (playerScript.gameTime <= 0)
+        {
+            Destroy(gameObject);
+        }
+        if (playerScript.gameTimer <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 
